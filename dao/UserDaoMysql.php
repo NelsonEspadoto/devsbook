@@ -1,5 +1,7 @@
 <?php
 require_once 'models/User.php';
+require_once 'dao/UserRelationDaoMysql.php';
+require_once 'dao/PostDaoMysql.php';
 
 class UserDaoMysql implements UserDAO {
     private $pdo;
@@ -9,7 +11,7 @@ class UserDaoMysql implements UserDAO {
         $this->pdo = $driver;
     }
 
-    private function generateUser($array)
+    private function generateUser($array, $full = false)
     {
         $u = new User();
         $u->id = $array['id'] ?? 0;
@@ -22,6 +24,28 @@ class UserDaoMysql implements UserDAO {
         $u->avatar = $array['avatar'] ?? '';
         $u->cover = $array['cover'] ?? '';
         $u->token = $array['token'] ?? '';
+
+        if ($full) {
+            $userDaoSql = new UserRelationDaoMysql($this->pdo);
+            $postDaoSql = new PostDaoMysql($this->pdo);
+
+            //seguidores
+            $u->followers = $userDaoSql->getFollowers($u->id);
+            foreach ($u->followers as $key => $follower_id) {
+                $newUser = $this->findById($follower_id);
+                $u->followers[$key] = $newUser;
+            }
+
+            //seguindo
+            $u->following = $userDaoSql->getFollowing($u->id);
+            foreach ($u->following as $key => $follow_id) {
+                $newUser = $this->findById($follow_id);
+                $u->following[$key] = $newUser;
+            }
+
+            $u->photos = $postDaoSql->getPhotosFrom($u->id);
+
+        }
 
         return $u;
     }
@@ -58,7 +82,7 @@ class UserDaoMysql implements UserDAO {
         return false;
     }
 
-    public function findById($id)
+    public function findById($id, $full = false)
     {
         if (!empty($id)) {
             $sql = $this->pdo->prepare("SELECT * FROM users WHERE id = :id");
@@ -67,7 +91,7 @@ class UserDaoMysql implements UserDAO {
 
             if ($sql->rowCount() > 0) {
                 $data = $sql->fetch(PDO::FETCH_ASSOC);
-                $user = $this->generateUser($data);
+                $user = $this->generateUser($data, $full);
                 return $user;
             }
         }

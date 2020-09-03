@@ -1,5 +1,5 @@
 .feed-item {
-
+    
 }
 .feed-item-head {
     align-items: center;
@@ -12,15 +12,15 @@
     height:50px;
     border-radius:50%;
 }
-.fidi-name {
+.feed-name {
     color:#224b7a;
     font-size:16px;
     display:inline-block;
     margin-right:5px;
     margin-bottom:5px;
 }
-.fidi-action,
-.fidi-date  {
+.feed-action,
+.feed-date  {
     color:#999;
     font-size:14px;
 }

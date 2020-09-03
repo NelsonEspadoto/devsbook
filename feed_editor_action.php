@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 require "config.php";
 require 'models/Auth.php';
@@ -22,29 +21,4 @@ if ($body) {
 }
 
 header("Location: ".$base);
-=======
-<?php
-require "config.php";
-require 'models/Auth.php';
-require 'dao/PostDaoMysql.php';
-
-$auth = new Auth($pdo, $base);
-$userInfo = $auth->checkToken();
-
-$body = filter_input(INPUT_POST, 'body');
-
-if ($body) {
-    $postDao = new PostDaoMysql($pdo);
-
-    $newPost = new Post();
-    $newPost->id_user = $userInfo->id;
-    $newPost->type = 'text';
-    $newPost->created_at = date('Y-m-d H:i:s');
-    $newPost->body = $body;
-
-    $postDao->insert($newPost);
-}
-
-header("Location: ".$base);
->>>>>>> d59d33e0d47727acc668a1d5129e2df46371cc8b
 exit;

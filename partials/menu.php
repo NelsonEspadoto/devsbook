@@ -11,7 +11,7 @@
                 </div>
             </a>
             <a href="<?=$base;?>/perfil.php">
-                <div class="menu-item" <?= $activeMenu == 'profile' ? 'active' : ''; ?>>
+                <div class="menu-item <?= $activeMenu == 'profile' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/user.png" width="16" height="16" />
                     </div>
@@ -21,7 +21,7 @@
                 </div>
             </a>
             <a href="<?=$base;?>/friends.php">
-                <div class="menu-item" <?= $activeMenu == 'friends' ? 'active' : ''; ?>>
+                <div class="menu-item <?= $activeMenu == 'friends' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/friends.png" width="16" height="16" />
                     </div>
@@ -34,7 +34,7 @@
                 </div>
             </a>
             <a href="<?=$base;?>/photo.php">
-                <div class="menu-item" <?= $activeMenu == 'photo' ? 'active' : ''; ?>>
+                <div class="menu-item <?= $activeMenu == 'photo' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/photo.png" width="16" height="16" />
                     </div>
@@ -45,7 +45,7 @@
             </a>
             <div class="menu-splitter"></div>
             <a href="<?=$base;?>/settings.php">
-                <div class="menu-item" <?= $activeMenu == 'settings' ? 'active' : ''; ?>>
+                <div class="menu-item <?= $activeMenu == 'settings' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/settings.png" width="16" height="16" />
                     </div>
