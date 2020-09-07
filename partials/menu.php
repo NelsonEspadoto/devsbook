@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </a>
-            <a href="<?=$base;?>/photo.php">
+            <a href="<?=$base;?>/fotos.php">
                 <div class="menu-item <?= $activeMenu == 'photo' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/photo.png" width="16" height="16" />
