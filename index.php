@@ -27,7 +27,7 @@ require 'partials/menu.php';
         <div class="column side pl-5">
             <div class="box banners">
                 <div class="box-header">
-                    <div class="box-header-text">Patrocinios</div>
+                    <div class="box-header-text">Patrocínios</div>
                     <div class="box-header-buttons">
                         
                     </div>

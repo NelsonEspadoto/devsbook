@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </a>
-            <a href="<?=$base;?>/friends.php">
+            <a href="<?=$base;?>/amigos.php">
                 <div class="menu-item <?= $activeMenu == 'friends' ? 'active' : ''; ?>">
                     <div class="menu-item-icon">
                         <img src="<?=$base;?>/assets/images/friends.png" width="16" height="16" />
