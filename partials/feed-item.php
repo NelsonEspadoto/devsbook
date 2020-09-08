@@ -1,4 +1,6 @@
 <?php
+require_once 'feed-item-script.php';
+
 $actionPhrase = '';
 switch ($item->type) {
     case 'text':
