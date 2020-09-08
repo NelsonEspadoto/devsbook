@@ -82,10 +82,10 @@ require 'partials/menu.php';
                 <div class="box-body">
 
                     <div class="tabs">
-                        <div class="tab-item" data-for="followers">
+                        <div class="tab-item active" data-for="followers">
                             Seguidores
                         </div>
-                        <div class="tab-item active" data-for="following">
+                        <div class="tab-item" data-for="following">
                             Seguindo
                         </div>
                     </div>
